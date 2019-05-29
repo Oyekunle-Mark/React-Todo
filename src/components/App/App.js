@@ -1,7 +1,7 @@
 import React from "react";
-import TodoList from "./components/TodoComponents/TodoList";
-import TodoForm from "./components/TodoComponents/TodoForm";
-import "./components/TodoComponents/Todo.css";
+import TodoList from "../TodoComponents/TodoList/TodoList";
+import TodoForm from "../TodoComponents/TodoForm/TodoForm";
+import "./App.css";
 
 const activityList = [
   {

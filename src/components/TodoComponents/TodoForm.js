@@ -1,11 +1,12 @@
 import React from "react";
+import "./TodoForm.css";
 
 function TodoForm({ inputValue, inputChange, addTodo, clearCompletedTask }) {
   return (
     <form>
       <input
         type="text"
-        placeholder="Enter new todo"
+        placeholder="...enter new todo"
         value={inputValue}
         onChange={inputChange}
       />

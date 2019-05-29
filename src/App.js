@@ -46,10 +46,25 @@ class App extends React.Component {
     });
   };
 
+  toggleCompleted = id => {
+    const newState = Object.assign(this.state.todos, {});
+
+    newState.forEach(todo => {
+      if (todo.id === id) todo.completed = !todo.completed;
+    });
+
+    this.setState({
+      todos: newState
+    });
+  };
+
   render() {
     return (
       <div>
-        <TodoList activities={this.state.todos} />
+        <TodoList
+          activities={this.state.todos}
+          changeCompleteStatus={this.toggleCompleted}
+        />
         <TodoForm
           inputValue={this.state.newTodoInput}
           inputChange={this.changeHandler}

@@ -1,7 +1,15 @@
-import React from 'react';
+import React from "react";
 
-export default function Todo({ id, task }) {
+function Todo({ id, task, completed, toggleCompleted }) {
+  const listStyle = {
+    textDecoration: completed ? "line-through" : "inherit"
+  };
+
   return (
-    <li key={id}>{task}</li>
+    <li key={id} style={listStyle} onClick={() => toggleCompleted(id)}>
+      {task}
+    </li>
   );
 }
+
+export default Todo;

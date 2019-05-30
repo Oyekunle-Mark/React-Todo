@@ -2,17 +2,34 @@ import React from "react";
 import TodoList from "../TodoComponents/TodoList/TodoList";
 import TodoForm from "../TodoComponents/TodoForm/TodoForm";
 import "./App.css";
-import activityList from './activityList';
+import activityList from "./activityList";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.todoList = null;
+
+    try {
+      this.todoList = JSON.parse(localStorage.taskManager);
+    } catch (e) {
+      this.todoList = activityList;
+    }
 
     this.state = {
-      todos: activityList,
+      todos: this.todoList,
       newTodoInput: "",
       searchText: ""
     };
+  }
+
+  componentDidMount() {
+    window.addEventListener("beforeunload", () => {
+      this.componentWillUnmount();
+    });
+  }
+
+  componentWillUnmount() {
+    window.localStorage.taskManager = JSON.stringify(this.state.todos);
   }
 
   changeHandler = e => {

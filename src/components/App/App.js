@@ -36,16 +36,18 @@ class App extends React.Component {
   addNewTodo = e => {
     e.preventDefault();
 
-    const newTodo = {
-      task: this.state.newTodoInput,
-      id: Date.now(),
-      completed: false
-    };
+    if (this.state.newTodoInput.trim()) {
+      const newTodo = {
+        task: this.state.newTodoInput,
+        id: Date.now(),
+        completed: false
+      };
 
-    this.setState({
-      todos: this.state.todos.concat(newTodo),
-      newTodoInput: ""
-    });
+      this.setState({
+        todos: this.state.todos.concat(newTodo),
+        newTodoInput: ""
+      });
+    }
   };
 
   toggleCompleted = id => {

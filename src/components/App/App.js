@@ -2,19 +2,7 @@ import React from "react";
 import TodoList from "../TodoComponents/TodoList/TodoList";
 import TodoForm from "../TodoComponents/TodoForm/TodoForm";
 import "./App.css";
-
-const activityList = [
-  {
-    task: "Organize Garage",
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: "Bake Cookies",
-    id: 1528817084358,
-    completed: false
-  }
-];
+import activityList from './activityList';
 
 class App extends React.Component {
   constructor(props) {

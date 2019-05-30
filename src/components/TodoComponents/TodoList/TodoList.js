@@ -19,7 +19,9 @@ function TodoList({
       <ul>
         {/* eslint-disable-next-line */}
         {activities.map(activity => {
-          if (activity.task.toLowerCase().includes(searchCriteria)) {
+          if (
+            activity.task.toLowerCase().includes(searchCriteria.toLowerCase())
+          ) {
             return (
               <Todo
                 key={activity.id}

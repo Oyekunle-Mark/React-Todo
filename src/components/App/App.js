@@ -22,7 +22,8 @@ class App extends React.Component {
 
     this.state = {
       todos: activityList,
-      newTodoInput: ""
+      newTodoInput: "",
+      searchText: ""
     };
   }
 
@@ -48,7 +49,7 @@ class App extends React.Component {
   };
 
   toggleCompleted = id => {
-    const newState = Object.assign(this.state.todos, {});
+    const newState = [...this.state.todos];
 
     newState.forEach(todo => {
       if (todo.id === id) todo.completed = !todo.completed;
@@ -65,6 +66,12 @@ class App extends React.Component {
 
     this.setState({
       todos: newState
+    });
+  };
+
+  searchInputHandler = e => {
+    this.setState({
+      searchText: e.target.value
     });
   };
 
@@ -85,6 +92,8 @@ class App extends React.Component {
           <TodoList
             activities={this.state.todos}
             changeCompleteStatus={this.toggleCompleted}
+            searchCriteria={this.state.searchText}
+            searchInputChange={this.searchInputHandler}
           />
         </div>
       </div>

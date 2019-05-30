@@ -31,6 +31,8 @@ module.exports = {
     'object-curly-newline': 0,
     'jsx-a11y/click-events-have-key-events': 0,
     'import/no-named-as-default': 0,
-    'import/no-named-as-default-member': 0
+    'import/no-named-as-default-member': 0,
+    'array-callback-return': 0,
+    'consistent-return': 0
   },
 };

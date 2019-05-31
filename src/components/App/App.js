@@ -24,11 +24,11 @@ class App extends React.Component {
 
   componentDidMount() {
     window.addEventListener("beforeunload", () => {
-      this.componentWillUnmount();
+      this.updateLocalStorage();
     });
   }
 
-  componentWillUnmount() {
+  updateLocalStorage() {
     window.localStorage.taskManager = JSON.stringify(this.state.todos);
   }
 
